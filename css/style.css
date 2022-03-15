@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 :root {
   --clr-strong-cyan: hsl(172, 67%, 45%);
   --clr-very-dark-cyan: hsl(183, 100%, 15%);
@@ -10,6 +11,20 @@
 
 body {
   background-color: var(--clr-light-grayish-cyan);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-wrapper {
+  box-sizing: border-box;
+  background-color: var(--clr-white);
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .attribution {
