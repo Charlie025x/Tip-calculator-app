@@ -22,14 +22,100 @@ body {
   align-items: center;
 }
 
+.logo {
+  margin-block: 3rem;
+  margin-inline: auto;
+}
+
 .calculator-wrapper {
   box-sizing: border-box;
   background-color: var(--clr-white);
   padding: 1rem;
   border-radius: 1rem;
+  h2 {
+    font-size: 1rem;
+    color: var(--clr-grayish-cyan);
+  }
+  button {
+    border: none;
+    border-radius: 0.5rem;
+    background-color: red;
+    padding-block: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: inherit;
+    font-family: inherit;
+  }
+  input[type="text"] {
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--clr-very-light-grayish-cyan);
+    width: 100%;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: inherit;
+    color: var(--clr-very-dark-cyan);
+    text-align: end;
+    margin-bottom: 1rem;
+    :focus {
+      outline: none;
+    }
+  }
+  .btn-tip-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    & > * {
+      flex-basis: calc(50% - 1rem); // -1 rem because of container's gap
+    }
+  }
+  .btn-tip {
+    background-color: var(--clr-very-dark-cyan);
+    color: var(--clr-very-light-grayish-cyan);
+  }
+  .btn-tip-custom {
+    background-color: var(--clr-very-light-grayish-cyan);
+    color: var(--clr-grayish-cyan);
+  }
+  .btn-reset {
+    background-color: var(--clr-strong-cyan);
+    color: var(--clr-very-dark-cyan);
+    width: 100%;
+  }
+  .btn-active {
+    background-color: var(--clr-strong-cyan);
+    color: var(--clr-very-dark-cyan);
+  }
+  .answer-wrapper {
+    box-sizing: border-box;
+    background-color: var(--clr-very-dark-cyan);
+    border-radius: 1rem;
+    padding: 1rem;
+    color: var(--clr-light-grayish-cyan);
+    .tip-category {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        display: flex;
+        flex-direction: column;
+        span {
+          color: var(--clr-grayish-cyan);
+          font-size: 0.9rem;
+        }
+      }
+      .tip-result {
+        color: var(--clr-strong-cyan);
+        font-size: 1.5rem;
+      }
+    }
+  }
 }
 
 .attribution {
+  margin-top: 2rem;
   font-size: 11px;
   text-align: center;
   a {
