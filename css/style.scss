@@ -50,7 +50,7 @@ body {
   }
   input[type="text"] {
     box-sizing: border-box;
-    outline: none;
+    // outline: none;
     border: none;
     border-radius: 0.5rem;
     background-color: var(--clr-very-light-grayish-cyan);
@@ -62,9 +62,7 @@ body {
     color: var(--clr-very-dark-cyan);
     text-align: end;
     margin-bottom: 1rem;
-    :focus {
-      outline: none;
-    }
+    outline-color: var(--clr-strong-cyan) !important;
   }
   .btn-tip-container {
     display: flex;
@@ -74,6 +72,15 @@ body {
     & > * {
       flex-basis: calc(50% - 1rem); // -1 rem because of container's gap
     }
+  }
+  .btn-tip:hover,
+  .btn-reset:hover {
+    cursor: pointer;
+    background-color: var(--clr-light-grayish-cyan);
+  }
+  .btn-tip:active,
+  .btn-reset:active {
+    transform: translateY(3px);
   }
   .btn-tip {
     background-color: var(--clr-very-dark-cyan);
@@ -114,7 +121,8 @@ body {
       }
       .tip-result {
         color: var(--clr-strong-cyan);
-        font-size: 1.5rem;
+        font-size: 2rem;
+        margin: 0;
       }
     }
   }
@@ -142,11 +150,17 @@ body {
     & > * {
       flex: 1;
     }
+    .btn-tip-container > * {
+      flex-basis: 30%; // 3 button alignment
+    }
     .answer-wrapper {
       position: relative;
       .tip-category {
         padding-inline: 1rem;
         margin-top: 2rem;
+        .tip-result {
+          font-size: 2.5rem;
+        }
       }
       .btn-reset {
         position: absolute;
