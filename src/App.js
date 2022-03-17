@@ -1,7 +1,9 @@
+import logo from "./images/logo.svg";
+
 function App() {
   return (
     <>
-      <img class="logo" src="./images/logo.svg" alt="logo" />
+      <img class="logo" src={logo} alt="logo" />
 
       <div class="calculator-wrapper">
         <div class="input-wrapper">

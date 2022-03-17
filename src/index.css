@@ -9,7 +9,7 @@
   --clr-white: hsl(0, 0%, 100%);
 }
 
-body {
+#root {
   background-color: var(--clr-light-grayish-cyan);
   font-family: "Space Mono", monospace;
   font-weight: 700;
