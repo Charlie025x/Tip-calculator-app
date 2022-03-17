@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+:root {
+  --clr-strong-cyan: hsl(172, 67%, 45%);
+  --clr-very-dark-cyan: hsl(183, 100%, 15%);
+  --clr-dark-grayish-cyan: hsl(186, 14%, 43%);
+  --clr-grayish-cyan: hsl(184, 14%, 56%);
+  --clr-light-grayish-cyan: hsl(185, 41%, 84%);
+  --clr-very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --clr-white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--clr-light-grayish-cyan);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-block: 3rem;
+}
+
+.calculator-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+  background-color: var(--clr-white);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.calculator-wrapper h2 {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--clr-grayish-cyan);
+}
+.calculator-wrapper button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: red;
+  padding-block: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: inherit;
+  font-family: inherit;
+}
+.calculator-wrapper input[type="text"] {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--clr-very-light-grayish-cyan);
+  width: 100%;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: inherit;
+  color: var(--clr-very-dark-cyan);
+  text-align: end;
+  margin-bottom: 1rem;
+  outline-color: var(--clr-strong-cyan) !important;
+}
+.calculator-wrapper .btn-tip-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.calculator-wrapper .btn-tip-container > * {
+  flex-basis: calc(50% - 1rem);
+}
+.calculator-wrapper .btn-tip:hover,
+.calculator-wrapper .btn-reset:hover {
+  cursor: pointer;
+  background-color: var(--clr-light-grayish-cyan);
+}
+.calculator-wrapper .btn-tip:active,
+.calculator-wrapper .btn-reset:active {
+  transform: translateY(3px);
+}
+.calculator-wrapper .btn-tip {
+  background-color: var(--clr-very-dark-cyan);
+  color: var(--clr-very-light-grayish-cyan);
+}
+.calculator-wrapper .btn-tip-custom {
+  background-color: var(--clr-very-light-grayish-cyan);
+  color: var(--clr-grayish-cyan);
+}
+.calculator-wrapper .btn-reset {
+  background-color: var(--clr-strong-cyan);
+  color: var(--clr-very-dark-cyan);
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.calculator-wrapper .btn-active {
+  background-color: var(--clr-strong-cyan);
+  color: var(--clr-very-dark-cyan);
+}
+.calculator-wrapper .answer-wrapper {
+  box-sizing: border-box;
+  background-color: var(--clr-very-dark-cyan);
+  border-radius: 1rem;
+  padding: 1rem;
+  color: var(--clr-light-grayish-cyan);
+}
+.calculator-wrapper .answer-wrapper .tip-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calculator-wrapper .answer-wrapper .tip-category p {
+  display: flex;
+  flex-direction: column;
+}
+.calculator-wrapper .answer-wrapper .tip-category p span {
+  color: var(--clr-grayish-cyan);
+  font-size: 0.9rem;
+}
+.calculator-wrapper .answer-wrapper .tip-category .tip-result {
+  color: var(--clr-strong-cyan);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.attribution {
+  margin-top: 2rem;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: #3e52a3;
+}
+
+@media only screen and (min-width: 992px) {
+  .logo {
+    margin: 0;
+    margin-bottom: 5rem;
+  }
+
+  .calculator-wrapper {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+    width: min(70rem, 90%);
+  }
+  .calculator-wrapper > * {
+    flex: 1;
+  }
+  .calculator-wrapper .btn-tip-container > * {
+    flex-basis: 30%;
+  }
+  .calculator-wrapper .answer-wrapper {
+    position: relative;
+  }
+  .calculator-wrapper .answer-wrapper .tip-category {
+    padding-inline: 1rem;
+    margin-top: 2rem;
+  }
+  .calculator-wrapper .answer-wrapper .tip-category .tip-result {
+    font-size: 2.5rem;
+  }
+  .calculator-wrapper .answer-wrapper .btn-reset {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: calc(100% - 4rem);
+  }
+}
+/*# sourceMappingURL=style.css.map */
