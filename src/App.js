@@ -81,14 +81,18 @@ class App extends Component {
               <p>
                 Tip Amount <span>/ person</span>
               </p>
-              <p className="tip-result">$4.27</p>
+              <p className="tip-result">{this.state.bill * 0.15}</p>
             </div>
 
             <div className="tip-category">
               <p>
                 Total <span>/ person</span>
               </p>
-              <p className="tip-result">$32.79</p>
+              <p className="tip-result">
+                {this.state.numOfPeople
+                  ? (this.state.bill * 0.15) / this.state.numOfPeople
+                  : ""}
+              </p>
             </div>
 
             <button className="btn-reset">Reset</button>
