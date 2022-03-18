@@ -11,6 +11,37 @@ class App extends Component {
       numOfPeople: "",
     };
   }
+
+  onInputchange(event) {
+    // this.setState(
+    //   () => {
+    //     return { bill: event.target.value };
+    //   },
+    //   () => {
+    //     console.log(this.state);
+    //   }
+    // );
+    // console.log(event.target.value);
+  }
+
+  handleBillInput = (event) => {
+    this.setState(
+      () => {
+        return { bill: event.target.value };
+      },
+      () => console.log(this.state)
+    );
+  };
+
+  handlePeopleInput = (event) => {
+    this.setState(
+      () => {
+        return { numOfPeople: event.target.value };
+      },
+      () => console.log(this.state)
+    );
+  };
+
   render() {
     return (
       <>
@@ -19,8 +50,19 @@ class App extends Component {
         <div className="calculator-wrapper">
           <div className="input-wrapper">
             <h2>Bill</h2>
-            <input type="text" name="bill" value="142.55" />
-
+            {/* <input
+              type="number"
+              name="bill"
+              onChange={(event) => {
+                this.setState(
+                  () => {
+                    return { bill: event.target.value };
+                  },
+                  () => console.log(this.state)
+                );
+              }}
+            /> */}
+            <input type="number" name="bill" onChange={this.handleBillInput} />
             <h2>Select Tip %</h2>
             <div className="btn-tip-container">
               <button className="btn-tip">5%</button>
@@ -30,9 +72,8 @@ class App extends Component {
               <button className="btn-tip">50%</button>
               <button className="btn-tip-custom">Custom</button>
             </div>
-
             <h2>Number of People</h2>
-            <input type="text" name="" id="" value="5" />
+            <input type="number" name="" onChange={this.handlePeopleInput} />
           </div>
 
           <div className="answer-wrapper">

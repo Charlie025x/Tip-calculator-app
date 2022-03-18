@@ -47,7 +47,8 @@
   font-weight: inherit;
   font-family: inherit;
 }
-.calculator-wrapper input[type="text"] {
+.calculator-wrapper input[type="text"],
+.calculator-wrapper input[type="number"] {
   box-sizing: border-box;
   border: none;
   border-radius: 0.5rem;
