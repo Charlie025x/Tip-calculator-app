@@ -57,7 +57,12 @@ class App extends Component {
                 );
               }}
             /> */}
-            <input type="number" name="bill" onChange={this.handleBillInput} />
+            <input
+              type="number"
+              name="bill"
+              value={this.state.bill}
+              onChange={this.handleBillInput}
+            />
             <h2>Select Tip %</h2>
 
             <div className="btn-tip-container">
@@ -130,7 +135,16 @@ class App extends Component {
               </p>
             </div>
 
-            <button className="btn-reset">Reset</button>
+            <button
+              className="btn-reset"
+              onClick={() => {
+                this.setState(() => {
+                  return { bill: "", numOfPeople: "1" };
+                });
+              }}
+            >
+              Reset
+            </button>
           </div>
         </div>
 
