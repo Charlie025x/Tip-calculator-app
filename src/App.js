@@ -2,14 +2,37 @@
 import { Component } from "react";
 import logo from "./images/logo.svg";
 
+import TipButton from "./components/button.component";
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       bill: "",
-      tip: 0.15,
+      tip: [
+        { value: 0.05, percent: "5%" },
+        { value: 0.1, percent: "10%" },
+        { value: 0.15, percent: "15%" },
+        { value: 0.25, percent: "25%" },
+        { value: 0.5, percent: "50%" },
+      ],
+      activeTip: 0.15,
       numOfPeople: 1,
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const newActiveTip = 0.1;
+    console.log();
+    this.setState(
+      () => {
+        return { activeTip: newActiveTip };
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   }
 
   onInputchange(event) {
@@ -64,67 +87,29 @@ class App extends Component {
             /> */}
             <input type="number" name="bill" onChange={this.handleBillInput} />
             <h2>Select Tip %</h2>
+
             <div className="btn-tip-container">
-              <button
-                className={`btn-tip ${
-                  this.state.tip === 0.05 ? "btn-active" : ""
-                }`}
-                onClick={(e) => {
-                  this.setState(() => {
-                    return { tip: 0.05 };
-                  });
-                }}
-              >
-                5%
-              </button>
-              <button
-                className={`btn-tip ${
-                  this.state.tip === 0.1 ? "btn-active" : ""
-                }`}
-                onClick={(e) => {
-                  this.setState(() => {
-                    return { tip: 0.1 };
-                  });
-                }}
-              >
-                10%
-              </button>
-              <button
-                className={`btn-tip ${
-                  this.state.tip === 0.15 ? "btn-active" : ""
-                }`}
-                onClick={(e) => {
-                  this.setState(() => {
-                    return { tip: 0.15 };
-                  });
-                }}
-              >
-                15%
-              </button>
-              <button
-                className={`btn-tip ${
-                  this.state.tip === 0.25 ? "btn-active" : ""
-                }`}
-                onClick={(e) => {
-                  this.setState(() => {
-                    return { tip: 0.25 };
-                  });
-                }}
-              >
-                25%
-              </button>
-              <button
-                className={`btn-tip ${
-                  this.state.tip === 0.5 ? "btn-active" : ""
-                }`}
-                onClick={(e) => {
-                  this.setState(() => {
-                    return { tip: 0.5 };
-                  });
-                }}
-              >
-                50%
-              </button>
+              {this.state.tip.map((tipData) => (
+                <button
+                  key={tipData.value}
+                  className={`btn-tip ${
+                    this.state.activeTip === tipData.value ? "btn-active" : ""
+                  }`}
+                  onClick={() => {
+                    this.setState(
+                      () => {
+                        return { activeTip: tipData.value };
+                      },
+                      () => {
+                        console.log(this.state);
+                      }
+                    );
+                  }}
+                >
+                  {tipData.percent}
+                </button>
+              ))}
+
               <button className="btn-tip-custom">Custom</button>
             </div>
             <h2>Number of People</h2>
@@ -141,7 +126,9 @@ class App extends Component {
               <p>
                 Tip Amount <span>/ person</span>
               </p>
-              <p className="tip-result">{this.state.bill * this.state.tip}</p>
+              <p className="tip-result">
+                {this.state.bill * this.state.activeTip}
+              </p>
             </div>
 
             <div className="tip-category">
@@ -150,7 +137,8 @@ class App extends Component {
               </p>
               <p className="tip-result">
                 {this.state.numOfPeople
-                  ? (this.state.bill * this.state.tip) / this.state.numOfPeople
+                  ? (this.state.bill * this.state.activeTip) /
+                    this.state.numOfPeople
                   : ""}
               </p>
             </div>
