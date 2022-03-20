@@ -2,8 +2,6 @@
 import { Component } from "react";
 import logo from "./images/logo.svg";
 
-import TipButton from "./components/button.component";
-
 class App extends Component {
   constructor() {
     super();
@@ -19,32 +17,6 @@ class App extends Component {
       activeTip: 0.15,
       numOfPeople: 1,
     };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const newActiveTip = 0.1;
-    console.log();
-    this.setState(
-      () => {
-        return { activeTip: newActiveTip };
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
-  }
-
-  onInputchange(event) {
-    // this.setState(
-    //   () => {
-    //     return { bill: event.target.value };
-    //   },
-    //   () => {
-    //     console.log(this.state);
-    //   }
-    // );
-    // console.log(event.target.value);
   }
 
   handleBillInput = (event) => {
@@ -89,6 +61,7 @@ class App extends Component {
             <h2>Select Tip %</h2>
 
             <div className="btn-tip-container">
+              {/* looping though tip state and rendering buttons */}
               {this.state.tip.map((tipData) => (
                 <button
                   key={tipData.value}
@@ -105,10 +78,12 @@ class App extends Component {
                       }
                     );
                   }}
+                  // onClick={this.handleChange}
                 >
                   {tipData.percent}
                 </button>
               ))}
+              {/* button rendering ends */}
 
               <button className="btn-tip-custom">Custom</button>
             </div>
@@ -127,7 +102,14 @@ class App extends Component {
                 Tip Amount <span>/ person</span>
               </p>
               <p className="tip-result">
-                {this.state.bill * this.state.activeTip}
+                {this.state.numOfPeople
+                  ? `$${
+                      Math.round(
+                        (100 * (this.state.bill * this.state.activeTip)) /
+                          this.state.numOfPeople
+                      ) / 100
+                    }`
+                  : ""}
               </p>
             </div>
 
@@ -137,8 +119,13 @@ class App extends Component {
               </p>
               <p className="tip-result">
                 {this.state.numOfPeople
-                  ? (this.state.bill * this.state.activeTip) /
-                    this.state.numOfPeople
+                  ? `$${Math.round(
+                      (100 *
+                        ((this.state.bill * this.state.activeTip) /
+                          this.state.numOfPeople +
+                          this.state.bill / this.state.numOfPeople)) /
+                        100
+                    )}`
                   : ""}
               </p>
             </div>
