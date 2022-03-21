@@ -37,6 +37,12 @@ class App extends Component {
     );
   };
 
+  handleCustomTip = (event) => {
+    this.setState(() => {
+      return { activeTip: event.target.value };
+    });
+  };
+
   render() {
     return (
       <>
@@ -90,7 +96,11 @@ class App extends Component {
               ))}
               {/* button rendering ends */}
 
-              <button className="btn-tip-custom">Custom</button>
+              <input
+                type="number"
+                placeholder="Custom"
+                onChange={this.handleCustomTip}
+              />
             </div>
             <h2>Number of People</h2>
             <input
